@@ -10,7 +10,7 @@
 <p>The user interface is designed by using Figma web. there is some of screenshots of this application<p/>
 
 ### Welcome Page
-![Screenshot](screenshot/1.png)
+![Screenshot](screenshots/1.png)
 
 ### Home Page
 
