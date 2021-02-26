@@ -13,11 +13,11 @@
 ![Screenshot](screenshots/1.png)
 
 ### Home Page
-
+![Screenshot](screenshots/2.png)
 
 ### Todo Page
-
+![Screenshot](screenshots/3.png)
 
 ### Account Page
-
+![Screenshot](screenshots/4.png)
 
