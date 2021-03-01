@@ -1,4 +1,4 @@
-# Mustodo-Flutter-App
+# Mustodo Flutter App
 
 ## What is Mustodo
 <p>Mustodo is a fully functional to do mobile application. If you want to contribute to developing this application, you can fix the issues and send a pull request.</p>
