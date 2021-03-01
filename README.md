@@ -12,12 +12,33 @@
 ### Welcome Page
 ![Screenshot](screenshots/1.png)
 
-### Home Page
+### Login Page
 ![Screenshot](screenshots/2.png)
 
-### Todo Page
+### Singin Page
 ![Screenshot](screenshots/3.png)
 
-### Account Page
+### Home Page
 ![Screenshot](screenshots/4.png)
+
+### New Peoject Page
+![Screenshot](screenshots/5.png)
+
+### Todo Page
+![Screenshot](screenshots/6.png)
+
+### New Task Page
+![Screenshot](screenshots/7.png)
+
+### Process Page
+![Screenshot](screenshots/8.png)
+
+### Riminder Page
+![Screenshot](screenshots/9.png)
+
+### New Riminder Page
+![Screenshot](screenshots/10.png)
+
+### Account Page
+![Screenshot](screenshots/11.png)
 
