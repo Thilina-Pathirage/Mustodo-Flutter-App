@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
                      child: ButtonTheme(
                        minWidth: 200.0,
                        height: 60.0,
-                       buttonColor: Colors.blue,
+                       buttonColor: Color(0xff0D6EFD),
                        child: RaisedButton(
-                         elevation: 10.0,
+                         elevation: 5.0,
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(22.0),
                          ),
@@ -69,9 +69,9 @@ class MyApp extends StatelessWidget {
                      child: ButtonTheme(
                        minWidth: 200.0,
                        height: 60.0,
-                       buttonColor: Colors.redAccent,
+                       buttonColor: Color(0xffFF3131),
                        child: RaisedButton(
-                         elevation: 10.0,
+                         elevation: 5.0,
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(22.0),
                          ),
