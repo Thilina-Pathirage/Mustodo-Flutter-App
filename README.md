@@ -1,6 +1,7 @@
 # Mustodo Flutter App
 
 ## What is Mustodo
+![Poster](screenshots/galaxy-s9-minimal-mockup(1).jpg)
 <p>Mustodo is a fully functional to do mobile application. If you want to contribute to developing this application, you can fix the issues and send a pull request.</p>
 
 ## Which technologies are used
