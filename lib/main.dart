@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mustodo/pages/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,103 +10,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+      ),
+      home: LoadingScreen(),
+    );
+  }
+}
+
+class LoadingScreen extends StatefulWidget {
+  @override
+  _LoadingScreenState createState() => _LoadingScreenState();
+}
+
+class _LoadingScreenState extends State<LoadingScreen> {
+  @override
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 4), () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        width: double.infinity,
+        height: double.infinity,
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Container(
-                height: 500.0,
-                child: Image(
-                  width: 200.0,
-                  image: AssetImage('images/MusToDo.png'),
+                child: Image.asset(
+                  "images/MusToDo.png",
+                  width: MediaQuery.of(context).size.width / 1.4,
                 ),
               ),
-             Container(
-               child: Column(
-                 children: <Widget>[
-                   Container(
-                     width: 300.0,
-                     margin: EdgeInsets.all(10.0),
-                     child: ButtonTheme(
-                       minWidth: 200.0,
-                       height: 60.0,
-                       buttonColor: Color(0xff0D6EFD),
-                       child: RaisedButton(
-                         elevation: 5.0,
-                         shape: RoundedRectangleBorder(
-                           borderRadius: BorderRadius.circular(22.0),
-                         ),
-                         onPressed: () {},
-                         child: Row(
-                           mainAxisSize: MainAxisSize.min,
-                           children: <Widget>[
-                             /*
-
-                        Image.asset('images/mustodologilogo.png',
-                          height: 30.0,
-                          width: 30.0,
-                        ),
-
-                         */
-                             Padding(
-                               padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 0),
-                               child: Text(
-                                 "Login with Mustodo",
-                                 style: TextStyle(fontWeight: FontWeight.bold,
-                                     fontSize: 15.0
-                                 ),
-                               ),
-                             ),
-                           ],
-                         ),
-                         textColor: Colors.white,
-                       ),
-                     ),
-                   ),
-                   Container(
-                     width: 300.0,
-                     margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 50.0),
-                     child: ButtonTheme(
-                       minWidth: 200.0,
-                       height: 60.0,
-                       buttonColor: Color(0xffFF3131),
-                       child: RaisedButton(
-                         elevation: 5.0,
-                         shape: RoundedRectangleBorder(
-                           borderRadius: BorderRadius.circular(22.0),
-                         ),
-                         onPressed: () {},
-                         child: Row(
-                           mainAxisSize: MainAxisSize.min,
-                           children: <Widget>[
-                             /*
-
-                        Image.asset('images/mustodologilogo.png',
-                          height: 30.0,
-                          width: 30.0,
-                        ),
-
-                         */
-                             Padding(
-                               padding: EdgeInsets.fromLTRB(0.0, 0, 0.0, 0),
-                               child: Text(
-                                 "Login with Google",
-                                 style: TextStyle(fontWeight: FontWeight.bold,
-                                     fontSize: 15.0
-                                 ),
-                               ),
-                             ),
-                           ],
-                         ),
-                         textColor: Colors.white,
-                       ),
-                     ),
-                   ),
-                 ],
-               ),
-             )
-
             ],
           ),
         ),
