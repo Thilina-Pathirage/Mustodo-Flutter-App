@@ -48,7 +48,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                   color: Color(0xff0D6EFD),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => LoginPage(),

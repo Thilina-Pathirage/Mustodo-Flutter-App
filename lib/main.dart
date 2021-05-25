@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MusToDo',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.blue,
       ),
       home: LoadingScreen(),
     );
@@ -30,7 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 4), () {
-      Navigator.push(
+      Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => WelcomePage()));
     });
   }
