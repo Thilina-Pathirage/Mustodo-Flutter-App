@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mustodo/pages/loginpage.dart';
+import 'package:mustodo/pages/welcome.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     super.initState();
     Future.delayed(Duration(seconds: 4), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => WelcomePage()));
     });
   }
 
