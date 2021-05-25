@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height / 11,
+                height: MediaQuery.of(context).size.height / 8,
               ),
               Container(
                 child: Image.asset(
@@ -27,15 +27,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 2.5,
+                height: MediaQuery.of(context).size.height / 3,
               ),
               Container(
-                height: MediaQuery.of(context).size.height / 13,
+                height: MediaQuery.of(context).size.height / 15,
                 width: MediaQuery.of(context).size.width / 1.3,
                 child: MaterialButton(
-                  elevation: 0,
+                  elevation: 12,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Text(
                     "Login",
@@ -50,15 +50,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 25,
+                height: MediaQuery.of(context).size.height / 30,
               ),
               Container(
-                height: MediaQuery.of(context).size.height / 13,
+                height: MediaQuery.of(context).size.height / 15,
                 width: MediaQuery.of(context).size.width / 1.3,
                 child: MaterialButton(
-                  elevation: 0,
+                  elevation: 12,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Text(
                     "Signup",
@@ -72,6 +72,17 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {},
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 30,
+              ),
+              Container(
+                child: Text(
+                  "Login to manage TO DOs",
+                  style: TextStyle(
+                    color: Color(0xffFF3131),
+                  ),
+                ),
+              )
             ],
           ),
         ),
