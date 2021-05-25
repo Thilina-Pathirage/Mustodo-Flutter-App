@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mustodo/pages/Loginpage.dart';
 
-class LoginPage extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _WelcomePageState createState() => _WelcomePageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +47,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   color: Color(0xff0D6EFD),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(
