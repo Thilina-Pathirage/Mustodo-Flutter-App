@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mustodo/pages/Loginpage.dart';
+import 'package:mustodo/pages/signuppage.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -31,10 +32,20 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: MediaQuery.of(context).size.height / 3,
               ),
               Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.25),
+                      spreadRadius: 4,
+                      blurRadius: 9,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
                 height: MediaQuery.of(context).size.height / 15,
                 width: MediaQuery.of(context).size.width / 1.3,
                 child: MaterialButton(
-                  elevation: 12,
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -61,10 +72,20 @@ class _WelcomePageState extends State<WelcomePage> {
                 height: MediaQuery.of(context).size.height / 30,
               ),
               Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.25),
+                      spreadRadius: 4,
+                      blurRadius: 9,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
                 height: MediaQuery.of(context).size.height / 15,
                 width: MediaQuery.of(context).size.width / 1.3,
                 child: MaterialButton(
-                  elevation: 12,
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -77,7 +98,14 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                   color: Color(0xffFF3131),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignupPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(
