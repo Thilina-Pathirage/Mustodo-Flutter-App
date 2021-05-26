@@ -73,47 +73,87 @@ class _LoginPageState extends State<LoginPage> {
                   height: MediaQuery.of(context).size.height / 40,
                 ),
                 Container(
-                  //height: MediaQuery.of(context).size.height / 15,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.25),
+                        spreadRadius: 4,
+                        blurRadius: 9,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height / 14,
                   width: MediaQuery.of(context).size.width / 1.3,
                   child: TextFormField(
-                    maxLength: 25,
                     decoration: InputDecoration(
-                      hintText: "Email",
-                      //labelText: "Enter your email address",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(
+                        left: 15,
+                        //bottom: 11,
+                        top: 17,
+                        right: 15,
                       ),
+                      enabledBorder: InputBorder.none,
+                      hintText: "Email",
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 100,
+                  height: MediaQuery.of(context).size.height / 30,
                 ),
                 Container(
-                  //height: MediaQuery.of(context).size.height / 15,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.25),
+                        spreadRadius: 4,
+                        blurRadius: 9,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height / 14,
                   width: MediaQuery.of(context).size.width / 1.3,
                   child: TextFormField(
-                    maxLength: 25,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "Password",
-                      //labelText: "Enter your email address",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(
+                        left: 15,
+                        //bottom: 11,
+                        top: 17,
+                        right: 15,
                       ),
+                      enabledBorder: InputBorder.none,
+                      hintText: "Password",
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 40,
+                  height: MediaQuery.of(context).size.height / 20,
                 ),
                 Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.25),
+                        spreadRadius: 4,
+                        blurRadius: 9,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
                   height: MediaQuery.of(context).size.height / 15,
                   width: MediaQuery.of(context).size.width / 1.3,
                   child: MaterialButton(
-                    elevation: 12,
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -137,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 30,
+                  height: MediaQuery.of(context).size.height / 15,
                 ),
                 Container(
                   child: Text(
