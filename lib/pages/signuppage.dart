@@ -16,8 +16,20 @@ class _SignupPageState extends State<SignupPage> {
           onTap: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(
-                builder: (context) => WelcomePage(),
+              PageRouteBuilder(
+                transitionDuration: Duration(seconds: 0),
+                transitionsBuilder: (context, animation, animationTime, child) {
+                  animation = CurvedAnimation(
+                      parent: animation, curve: Curves.easeInCirc);
+                  return ScaleTransition(
+                    alignment: Alignment.center,
+                    scale: animation,
+                    child: child,
+                  );
+                },
+                pageBuilder: (context, animation, animationTime) {
+                  return WelcomePage();
+                },
               ),
             );
           },

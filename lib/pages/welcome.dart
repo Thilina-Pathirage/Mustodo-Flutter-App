@@ -61,8 +61,21 @@ class _WelcomePageState extends State<WelcomePage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                      PageRouteBuilder(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionsBuilder:
+                            (context, animation, animationTime, child) {
+                          animation = CurvedAnimation(
+                              parent: animation, curve: Curves.elasticOut);
+                          return ScaleTransition(
+                            alignment: Alignment.center,
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        pageBuilder: (context, animation, animationTime) {
+                          return LoginPage();
+                        },
                       ),
                     );
                   },
@@ -101,8 +114,21 @@ class _WelcomePageState extends State<WelcomePage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => SignupPage(),
+                      PageRouteBuilder(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionsBuilder:
+                            (context, animation, animationTime, child) {
+                          animation = CurvedAnimation(
+                              parent: animation, curve: Curves.elasticOut);
+                          return ScaleTransition(
+                            alignment: Alignment.center,
+                            scale: animation,
+                            child: child,
+                          );
+                        },
+                        pageBuilder: (context, animation, animationTime) {
+                          return SignupPage();
+                        },
                       ),
                     );
                   },
