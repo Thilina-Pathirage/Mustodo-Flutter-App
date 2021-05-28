@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mustodo/animations/FadeAnimation.dart';
 import 'package:mustodo/pages/homepage.dart';
 import 'package:mustodo/pages/welcome.dart';
 
@@ -16,22 +17,28 @@ class _SignupPageState extends State<SignupPage> {
           onTap: () {
             Navigator.pushReplacement(
               context,
-              PageRouteBuilder(
-                transitionDuration: Duration(seconds: 0),
-                transitionsBuilder: (context, animation, animationTime, child) {
-                  animation = CurvedAnimation(
-                      parent: animation, curve: Curves.easeInCirc);
-                  return ScaleTransition(
-                    alignment: Alignment.center,
-                    scale: animation,
-                    child: child,
-                  );
-                },
-                pageBuilder: (context, animation, animationTime) {
-                  return WelcomePage();
-                },
+              MaterialPageRoute(
+                builder: (context) => WelcomePage(),
               ),
             );
+            // Navigator.pushReplacement(
+            //   context,
+            //   PageRouteBuilder(
+            //     transitionDuration: Duration(seconds: 0),
+            //     transitionsBuilder: (context, animation, animationTime, child) {
+            //       animation = CurvedAnimation(
+            //           parent: animation, curve: Curves.easeInCirc);
+            //       return ScaleTransition(
+            //         alignment: Alignment.center,
+            //         scale: animation,
+            //         child: child,
+            //       );
+            //     },
+            //     pageBuilder: (context, animation, animationTime) {
+            //       return WelcomePage();
+            //     },
+            //   ),
+            // );
           },
           child: Icon(
             Icons.arrow_back, // add custom icons also
@@ -57,15 +64,18 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 30,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: Container(
-                      child: Text(
-                        "Personal Details",
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                FadeAnimation(
+                  1.9,
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Container(
+                        child: Text(
+                          "Personal Details",
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -73,114 +83,126 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 70,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                FadeAnimation(
+                  1.8,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "First Name",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "First Name",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 30,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                FadeAnimation(
+                  1.7,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "Last Name",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "Last Name",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 30,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                FadeAnimation(
+                  1.6,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "Your Title",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "Your Title",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 20,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: Container(
-                      child: Text(
-                        "Login Details",
-                        style: TextStyle(
-                            fontSize: 18.0, fontWeight: FontWeight.bold),
+                FadeAnimation(
+                  1.5,
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: Container(
+                        child: Text(
+                          "Login Details",
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -188,146 +210,172 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 70,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                FadeAnimation(
+                  1.4,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "Email",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "Email",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 30,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
+                FadeAnimation(
+                  1.3,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "Password",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "Password",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 40,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 14,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.only(
-                        left: 15,
-                        //bottom: 11,
-                        top: 17,
-                        right: 15,
-                      ),
-                      enabledBorder: InputBorder.none,
-                      hintText: "Confirm Password",
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 20,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.25),
-                        spreadRadius: 4,
-                        blurRadius: 9,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  height: MediaQuery.of(context).size.height / 15,
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  child: MaterialButton(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
+                FadeAnimation(
+                  1.2,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      "Create",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                    height: MediaQuery.of(context).size.height / 14,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.only(
+                          left: 15,
+                          //bottom: 11,
+                          top: 17,
+                          right: 15,
+                        ),
+                        enabledBorder: InputBorder.none,
+                        hintText: "Confirm Password",
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
                     ),
-                    color: Color(0xff0D6EFD),
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ),
-                      );
-                    },
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 15,
+                  height: MediaQuery.of(context).size.height / 30,
+                ),
+                FadeAnimation(
+                  1.1,
+                  Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.25),
+                          spreadRadius: 4,
+                          blurRadius: 9,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: MediaQuery.of(context).size.height / 15,
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    child: MaterialButton(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Text(
+                        "Create",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      color: Color(0xff0D6EFD),
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 30,
+                ),
+                FadeAnimation(
+                  1,
+                  Container(
+                    child: Text(
+                      "Alrady have an account?",
+                      style: TextStyle(
+                        color: Color(0xffFF3131),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
                 ),
               ],
             ),
