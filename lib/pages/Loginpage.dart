@@ -21,24 +21,6 @@ class _LoginPageState extends State<LoginPage> {
                 builder: (context) => WelcomePage(),
               ),
             );
-            // Navigator.pushReplacement(
-            //   context,
-            //   PageRouteBuilder(
-            //     transitionDuration: Duration(seconds: 0),
-            //     transitionsBuilder: (context, animation, animationTime, child) {
-            //       animation = CurvedAnimation(
-            //           parent: animation, curve: Curves.easeInCirc);
-            //       return ScaleTransition(
-            //         alignment: Alignment.center,
-            //         scale: animation,
-            //         child: child,
-            //       );
-            //     },
-            //     pageBuilder: (context, animation, animationTime) {
-            //       return WelcomePage();
-            //     },
-            //   ),
-            // );
           },
           child: Icon(
             Icons.arrow_back, // add custom icons also
