@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mustodo/animations/FadeAnimation.dart';
 import 'package:mustodo/pages/homepage.dart';
@@ -9,6 +10,14 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final TextEditingController _fnameController = TextEditingController();
+  final TextEditingController _lnameController = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final _firebaseAuth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,6 +110,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _fnameController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.only(
@@ -137,6 +147,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _lnameController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.only(
@@ -173,6 +184,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _titleController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.only(
@@ -182,7 +194,7 @@ class _SignupPageState extends State<SignupPage> {
                           right: 15,
                         ),
                         enabledBorder: InputBorder.none,
-                        hintText: "Your Title",
+                        hintText: "Title",
                         floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
                     ),
@@ -228,6 +240,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.only(
@@ -264,6 +277,7 @@ class _SignupPageState extends State<SignupPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -349,13 +363,17 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                       color: Color(0xff0D6EFD),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ),
+                      onPressed: () async {
+                        await _firebaseAuth.createUserWithEmailAndPassword(
+                          email: _emailController.text,
+                          password: _passwordController.text,
                         );
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => HomePage(),
+                        //   ),
+                        // );
                       },
                     ),
                   ),
