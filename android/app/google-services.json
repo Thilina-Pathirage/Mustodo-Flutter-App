@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "764284701670",
+    "project_id": "mustodo-7ae76",
+    "storage_bucket": "mustodo-7ae76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764284701670:android:55c71515b67e64d058a427",
+        "android_client_info": {
+          "package_name": "sequencecreators.mustodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764284701670-9g1galo787lr3gvi8lg5jhp6sfsbgpb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfA8VQ7pFCspzfIAZGlqCKW6K9oDJXh3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764284701670-9g1galo787lr3gvi8lg5jhp6sfsbgpb5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
