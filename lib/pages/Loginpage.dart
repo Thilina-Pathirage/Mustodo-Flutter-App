@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mustodo/animations/FadeAnimation.dart';
 import 'package:mustodo/pages/homepage.dart';
@@ -9,6 +10,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  final _firebaseAuth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,6 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.only(
@@ -136,6 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: MediaQuery.of(context).size.height / 14,
                     width: MediaQuery.of(context).size.width / 1.3,
                     child: TextFormField(
+                      controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -184,13 +192,20 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       color: Color(0xff0D6EFD),
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomePage(),
-                          ),
-                        );
+                      onPressed: () async {
+                        await _firebaseAuth
+                            .signInWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text,
+                            )
+                            .then(
+                              (value) => Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomePage(),
+                                ),
+                              ),
+                            );
                       },
                     ),
                   ),
