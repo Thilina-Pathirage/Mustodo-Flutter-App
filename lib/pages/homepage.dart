@@ -2,7 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mustodo/pages/Loginpage.dart';
+import 'package:mustodo/pages/home_in_home.dart';
+import 'package:mustodo/pages/profile_page.dart';
+import 'package:mustodo/pages/reminder_page.dart';
 import 'package:mustodo/pages/welcome.dart';
+import 'package:mustodo/widgets/bottomNavbar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,6 +14,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedItemIndex = 1;
+  Widget shouldLoadPage(int index) {
+    if (index == 0) {
+      return ReminderPage();
+    } else if (index == 1) {
+      return HomeHomePage();
+    } else if (index == 2) {
+      return ProfilePage();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -24,47 +39,80 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 5,
-              width: MediaQuery.of(context).size.width / 1.2,
-              child: Carousel(
-                images: [
-                  NetworkImage(
-                      'https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
-                  NetworkImage(
-                      'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
-                  NetworkImage(
-                      'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg')
-                ],
-                showIndicator: false,
-                borderRadius: false,
-                moveIndicatorFromBottom: 180.0,
-                noRadiusForIndicator: true,
-                overlayShadow: true,
-                overlayShadowColors: Color(0xff0D6EFD),
-                overlayShadowSize: 0.7,
-                radius: Radius.circular(30.0),
-              ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Color(0xff0D6EFD),
+      ),
+      bottomNavigationBar: Container(
+        height: 70,
+        color: Colors.white,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
             ),
-            Container(
-              child: MaterialButton(
-                child: Text("Logout"),
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut().then(
-                        (value) => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => WelcomePage(),
-                          ),
-                        ),
-                      );
-                },
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.25),
+                spreadRadius: 4,
+                blurRadius: 9,
+                offset: Offset(0, 3), // changes position of shadow
               ),
-            )
-          ],
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildContainerBottomNav(Icons.timelapse, 0),
+              buildContainerBottomNav(Icons.home, 1),
+              buildContainerBottomNav(Icons.person, 2),
+            ],
+          ),
+        ),
+      ),
+      body: shouldLoadPage(_selectedItemIndex),
+    );
+  }
+
+  Widget buildContainerBottomNav(IconData icon, int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedItemIndex = index;
+        });
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: index == _selectedItemIndex ? Color(0xff0D6EFD) : Colors.white,
+          borderRadius: BorderRadius.circular(15.0),
+          boxShadow: index == _selectedItemIndex
+              ? [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.25),
+                    spreadRadius: 4,
+                    blurRadius: 9,
+                    offset: Offset(0, 3), // changes position of shadow
+                  )
+                ]
+              : [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.20),
+                    spreadRadius: 4,
+                    blurRadius: 9,
+                    offset: Offset(0, 3), // changes position of shadow
+                  )
+                ],
+        ),
+        height: 40,
+        width: 80,
+        child: Icon(
+          icon,
+          color: index == _selectedItemIndex ? Colors.white : Color(0xff0D6EFD),
         ),
       ),
     );
