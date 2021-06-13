@@ -5,6 +5,7 @@ import 'package:mustodo/pages/Loginpage.dart';
 import 'package:mustodo/pages/home_in_home.dart';
 import 'package:mustodo/pages/profile_page.dart';
 import 'package:mustodo/pages/reminder_page.dart';
+import 'package:mustodo/pages/stat_page.dart';
 import 'package:mustodo/pages/welcome.dart';
 import 'package:mustodo/widgets/bottomNavbar.dart';
 
@@ -14,16 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedItemIndex = 1;
-  Widget shouldLoadPage(int index) {
-    if (index == 0) {
-      return ReminderPage();
-    } else if (index == 1) {
-      return HomeHomePage();
-    } else if (index == 2) {
-      return ProfilePage();
-    }
-  }
+  int _selectedItemIndex = 0;
+
+  List pageList = [
+    HomeHomePage(),
+    StatPage(),
+    ReminderPage(),
+    ProfilePage(),
+  ];
 
   @override
   void initState() {
@@ -39,23 +38,42 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        child: const Icon(Icons.add),
-        backgroundColor: Color(0xff0D6EFD),
+      //backgroundColor: Colors.amber,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 10),
+        child: Container(
+          child: FloatingActionButton(
+            elevation: 0,
+            onPressed: () {
+              // Add your onPressed code here!
+            },
+            child: const Icon(Icons.add),
+            backgroundColor: Color(0xff0D6EFD),
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xff0D6EFD).withOpacity(0.45),
+                spreadRadius: 4,
+                blurRadius: 15,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+        ),
       ),
       bottomNavigationBar: Container(
-        height: 70,
+        height: MediaQuery.of(context).size.height / 10,
         color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
+            // borderRadius: BorderRadius.only(
+            //   topLeft: Radius.circular(20),
+            //   topRight: Radius.circular(20),
+            // ),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.25),
@@ -68,14 +86,18 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buildContainerBottomNav(Icons.timelapse, 0),
-              buildContainerBottomNav(Icons.home, 1),
-              buildContainerBottomNav(Icons.person, 2),
+              buildContainerBottomNav(Icons.home, 0),
+              buildContainerBottomNav(Icons.bar_chart, 1),
+              SizedBox(
+                width: 30.0,
+              ),
+              buildContainerBottomNav(Icons.timelapse, 2),
+              buildContainerBottomNav(Icons.person, 3),
             ],
           ),
         ),
       ),
-      body: shouldLoadPage(_selectedItemIndex),
+      body: pageList[_selectedItemIndex],
     );
   }
 
@@ -88,7 +110,9 @@ class _HomePageState extends State<HomePage> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: index == _selectedItemIndex ? Color(0xff0D6EFD) : Colors.white,
+          color: index == _selectedItemIndex
+              ? Color(0xff0D6EFD)
+              : Colors.grey[400],
           borderRadius: BorderRadius.circular(15.0),
           boxShadow: index == _selectedItemIndex
               ? [
@@ -99,20 +123,13 @@ class _HomePageState extends State<HomePage> {
                     offset: Offset(0, 3), // changes position of shadow
                   )
                 ]
-              : [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.20),
-                    spreadRadius: 4,
-                    blurRadius: 9,
-                    offset: Offset(0, 3), // changes position of shadow
-                  )
-                ],
+              : [],
         ),
-        height: 40,
-        width: 80,
+        height: 45,
+        width: 45,
         child: Icon(
           icon,
-          color: index == _selectedItemIndex ? Colors.white : Color(0xff0D6EFD),
+          color: index == _selectedItemIndex ? Colors.white : Colors.white,
         ),
       ),
     );
