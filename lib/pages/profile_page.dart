@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mustodo/pages/welcome.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -9,8 +11,28 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        child: Text("Profile Page"),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Text("Profile Page"),
+          ),
+          Container(
+            child: MaterialButton(
+              child: Text("Logout"),
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut().then(
+                      (value) => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WelcomePage(),
+                        ),
+                      ),
+                    );
+              },
+            ),
+          )
+        ],
       ),
     );
   }
