@@ -9,11 +9,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Color(0xff0D6EFD),
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   SystemUiOverlayStyle(
+  //     statusBarColor: Color(0xff0D6EFD),
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
