@@ -1,13 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+// import 'package:carousel_pro/carousel_pro.dart';
 import 'package:mustodo/pages/Loginpage.dart';
+import 'package:mustodo/pages/addnew_peoject.dart';
 import 'package:mustodo/pages/home_in_home.dart';
 import 'package:mustodo/pages/profile_page.dart';
 import 'package:mustodo/pages/reminder_page.dart';
 import 'package:mustodo/pages/stat_page.dart';
-import 'package:mustodo/pages/welcome.dart';
-import 'package:mustodo/widgets/bottomNavbar.dart';
+// import 'package:mustodo/pages/welcome.dart';
+// import 'package:mustodo/widgets/bottomNavbar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -46,7 +47,12 @@ class _HomePageState extends State<HomePage> {
           child: FloatingActionButton(
             elevation: 0,
             onPressed: () {
-              // Add your onPressed code here!
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddNewProjectPage(),
+                ),
+              );
             },
             child: const Icon(Icons.add),
             backgroundColor: Color(0xff0D6EFD),
